@@ -8,5 +8,7 @@ class CreateUsers < ActiveRecord::Migration[8.1]
 
       t.timestamps
     end
+    # tweetsテーブルのuser_idとcreated_atにインデックスを追加
+    add_index :tweets, [:user_id, :created_at]
   end
 end
