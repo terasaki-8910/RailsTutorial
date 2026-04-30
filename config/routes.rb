@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   get '/:nickname', to: 'users#show'
   get 'users/index'
+  get '/:nickname/followers', to:'users#show_followers'
+  get '/:nickname/followings', to:'users#show_followings'
 
   resources :tweets, only: [:create, :destroy]
+  resources :follow_relationships, only:[:create,:destroy]
 end
